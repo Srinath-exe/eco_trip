@@ -27,5 +27,20 @@ class Config {
   }
 }
 
+//Colors
+
 Color lightgreen = const Color(0xff60ad9d);
 Color darkGreen = const Color(0xff0e4b40);
+Color green = const Color(0xffADBEAF);
+Color grey = Colors.grey.shade300;
+Color darkGrey = Colors.grey.shade600;
+Color black = Colors.black;
+Color white = Colors.white;
+
+//textfields
+
+TextStyle mainText = TextStyle(fontSize: 16, color: white);
+TextStyle subText = TextStyle(
+    fontSize: 12, color: white.withOpacity(0.9), fontWeight: FontWeight.w600);
+TextStyle Heading = TextStyle(fontSize: 16, color: black);
+TextStyle helpText = TextStyle(fontSize: 16, color: black);

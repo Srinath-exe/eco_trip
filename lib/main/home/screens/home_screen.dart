@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:eco_trip/main/home/screens/widgets/float_couralSlider.dart';
+import 'package:eco_trip/main/home/screens/widgets/home_card.dart';
+import 'package:eco_trip/main/home/screens/widgets/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -20,7 +22,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   AnimationController? _controller;
   AnimationController? scale;
+
   ScrollController scrollController = ScrollController();
+
   double height = 0.1;
   bool scroll = false;
 
@@ -34,6 +38,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       _controller!.value = (10 / scrollController.offset).clamp(0.0, 1.0);
       _controller!.value == 0 ? scroll = false : scroll = true;
       scale!.value = (35 / scrollController.offset);
+      if (scale!.value == 1.5) {
+        setState(() {
+          scroll = false;
+        });
+      } else {
+        setState(() {
+          scroll = true;
+        });
+      }
     });
 
     super.initState();
@@ -54,72 +67,129 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             physics: const ClampingScrollPhysics(),
             controller: scrollController,
             scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+            child: Stack(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: Config().deviceHeight(context) * 0.1,
-                  color: lightgreen,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: Config().deviceHeight(context) * 0.1,
+                      color: lightgreen,
+                    ),
+                    ScaleTransition(
+                      scale: scale!,
+                      child: Stack(
+                        children: [
+                          Lottie.asset(
+                            'assets/lottie/forest.json',
+                            controller: _controller,
+                            onLoaded: (composition) {
+                              _controller!.stop();
+                            },
+                          ),
+                          AnimatedPositioned(
+                              duration: const Duration(milliseconds: 200),
+                              top: scroll ? -60 : 50,
+                              left: 120,
+                              right: 120,
+                              child: Image.asset(
+                                "assets/images/logo.png",
+                                fit: BoxFit.fitWidth,
+                                width: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                    AnimatedContainer(
+                        duration: const Duration(milliseconds: 100),
+                        height:
+                            scroll ? 0 : Config().deviceHeight(context) * 0.05
+                        // color: Colors.yellow.withOpacity(0.1),
+                        ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          HomeTile(
+                            location: "Magaluru",
+                            no: 3,
+                            url: "assets/images/chikkamagaluru1.jpg",
+                          ),
+                          HomeTile(
+                            location: "Bengaluru",
+                            no: 10,
+                            url: "assets/images/bangalore1.jpg",
+                            mid: true,
+                          ),
+                          HomeTile(
+                            location: "Belagavi",
+                            no: 5,
+                            url: "assets/images/belagavi1.jpg",
+                          )
+                        ],
+                      ),
+                    ),
+                    HomeCards()
+                  ],
                 ),
-                ScaleTransition(
-                  scale: scale!,
-                  child: Lottie.asset(
-                    'assets/lottie/forest.json',
-                    controller: _controller,
-                    onLoaded: (composition) {
-                      _controller!.stop();
-                    },
-                  ),
-                ),
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 100),
-                  height: _controller!.value == 1
-                      ? Config().deviceHeight(context) * 0.1
-                      : 0,
-                  // color: Colors.yellow.withOpacity(0.1),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [HomeTile(), HomeTile(), HomeTile()],
-                  ),
-                ),
-                SizedBox(
-                  height: Config().deviceHeight(context) * 0.6,
-                )
+                AnimatedPositioned(
+                    duration: const Duration(milliseconds: 100),
+                    left: 8,
+                    right: 8,
+                    top: scroll ? 250 : 300,
+                    child: SearchBar()),
+                AnimatedPositioned(
+                    duration: const Duration(milliseconds: 200),
+                    left: 8,
+                    right: 8,
+                    top: scroll ? 160 : -60,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.menu_rounded,
+                            size: 32,
+                            color: white,
+                          ),
+                        ],
+                      ),
+                    )),
               ],
             )),
       ),
     );
   }
+}
 
-  title({required String title, required void Function()? ontap}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),
+title({required String title, required void Function()? ontap}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+              color: white, fontWeight: FontWeight.w500, fontSize: 20),
+        ),
+        GestureDetector(
+          onTap: ontap,
+          child: Text(
+            "See all",
+            style: TextStyle(
+                color: Colors.green.shade800,
+                fontWeight: FontWeight.w400,
+                fontSize: 12),
           ),
-          GestureDetector(
-            onTap: ontap,
-            child: Text(
-              "See all",
-              style: TextStyle(
-                  color: Colors.green.shade800,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+        )
+      ],
+    ),
+  );
 }
 
 class CurveClipper extends CustomClipper<Path> {
