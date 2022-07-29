@@ -22,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   AnimationController? _controller;
   AnimationController? scale;
+  AnimationController? transitionController;
 
   ScrollController scrollController = ScrollController();
 
@@ -38,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       _controller!.value = (10 / scrollController.offset).clamp(0.0, 1.0);
       _controller!.value == 0 ? scroll = false : scroll = true;
       scale!.value = (35 / scrollController.offset);
+      transitionController!.value =
+          (10 / scrollController.offset).clamp(0.45, 1.0);
       if (scale!.value == 1.5) {
         setState(() {
           scroll = false;
@@ -48,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         });
       }
     });
+
+    transitionController = AnimationController(vsync: this, value: 1);
 
     super.initState();
   }
@@ -61,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkGreen,
+      backgroundColor: white,
       body: Center(
         child: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
@@ -69,6 +74,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             scrollDirection: Axis.vertical,
             child: Stack(
               children: [
+                AnimatedPositioned(
+                    top: !scroll
+                        ? Config().deviceHeight(context) * 0.51
+                        : Config().deviceHeight(context) * 0.4,
+                    duration: const Duration(milliseconds: 10),
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Container(
+                        child: Lottie.asset(
+                          'assets/lottie/transition.json',
+                          width: Config().deviceWidth(context),
+                          controller: transitionController,
+                          onLoaded: (composition) {
+                            _controller!.stop();
+                          },
+                        ),
+                      ),
+                    )),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
