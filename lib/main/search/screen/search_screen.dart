@@ -1,5 +1,6 @@
 import 'package:drop_shadow/drop_shadow.dart';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
+import 'package:eco_trip/main/home/screens/widgets/home_card.dart';
 import 'package:eco_trip/main/home/screens/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:shadowed_image/shadowed_image.dart';
@@ -107,6 +108,7 @@ class _SearchScreenState extends State<SearchScreen> {
         //     ),
         //   ],
         // ),
+
         Expanded(
           child: GridView(
             padding: const EdgeInsets.all(12),

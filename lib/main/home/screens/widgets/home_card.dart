@@ -18,7 +18,7 @@ class _HomeCardsState extends State<HomeCards> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 100),
-      height: Config().deviceHeight(context) * 0.44,
+      height: Config().deviceHeight(context) * 0.4,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,7 +38,7 @@ class _HomeCardsState extends State<HomeCards> {
                     distance: "5.5 Kms",
                     name: "Nandhi Hills",
                     rating: "4.7",
-                    url: "assets/images/nandhihills.jpg",
+                    url: "assets/images/card1.jpg",
                   ),
                   TrekCard(
                     location: "Banglore, Karnataka",
