@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eco_trip/constants/config.dart';
 import 'package:eco_trip/main/home/screens/home_screen.dart';
 import 'package:eco_trip/main/home/screens/widgets/trek_card.dart';
@@ -14,24 +16,53 @@ class HomeCards extends StatefulWidget {
 class _HomeCardsState extends State<HomeCards> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Config().deviceHeight(context) * 0.5,
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 100),
+      height: Config().deviceHeight(context) * 0.44,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 20,
-          ),
-          title(title: "Popular Treks ", ontap: () {}),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [TrekCard()],
-          )
+          Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CarouselSlider(
+                options: CarouselOptions(
+                    clipBehavior: Clip.none,
+                    autoPlay: false,
+                    enlargeCenterPage: true,
+                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                    viewportFraction: 1),
+                items: [
+                  TrekCard(
+                    location: "Banglore, Karnataka",
+                    distance: "5.5 Kms",
+                    name: "Nandhi Hills",
+                    rating: "4.7",
+                    url: "assets/images/nandhihills.jpg",
+                  ),
+                  TrekCard(
+                    location: "Banglore, Karnataka",
+                    distance: "5.5 Kms",
+                    name: "Nandhi Hills",
+                    rating: "4.7",
+                    url: "assets/images/nandhihills.jpg",
+                  ),
+                  TrekCard(
+                    location: "Banglore, Karnataka",
+                    distance: "5.5 Kms",
+                    name: "Nandhi Hills",
+                    rating: "4.7",
+                    url: "assets/images/nandhihills.jpg",
+                  ),
+                  TrekCard(
+                    location: "Banglore, Karnataka",
+                    distance: "5.5 Kms",
+                    name: "Nandhi Hills",
+                    rating: "4.7",
+                    url: "assets/images/nandhihills.jpg",
+                  ),
+                ],
+              )),
         ],
       ),
     );

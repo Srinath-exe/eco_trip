@@ -5,12 +5,9 @@ import '../../../constants/config.dart';
 enum BackButtonTheme { light, dark, green }
 
 ThemeValues getTheme(BackButtonTheme theme) {
-  ThemeValues light =
-      ThemeValues(primary: Colors.green.shade800, secondary: Colors.white);
-  ThemeValues dark =
-      ThemeValues(primary: Colors.green.shade800, secondary: Colors.black);
-  ThemeValues green = ThemeValues(
-      primary: Colors.green.shade800, secondary: Colors.green.withOpacity(0.2));
+  ThemeValues light = ThemeValues(primary: darkGreen, secondary: white);
+  ThemeValues dark = ThemeValues(primary: darkGreen, secondary: black);
+  ThemeValues green = ThemeValues(primary: darkGreen, secondary: lightgreen);
   switch (theme) {
     case BackButtonTheme.dark:
       return dark;
@@ -40,7 +37,7 @@ class CustomBackButton extends StatefulWidget {
   CustomBackButton(
       {Key? key,
       this.onTap,
-      this.size = 60,
+      this.size = 50,
       this.icon = Icons.arrow_back_ios_new_rounded,
       this.theme = BackButtonTheme.green})
       : super(key: key);
@@ -73,7 +70,7 @@ class _CustomBackButtonState extends State<CustomBackButton> {
               width: size,
               height: size,
               child: InkWell(
-                splashColor: Colors.green,
+                splashColor: lightgreen,
                 onTap: widget.onTap,
                 child: Center(
                   child: Padding(

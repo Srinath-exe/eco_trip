@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eco_trip/main/home/screens/widgets/float_couralSlider.dart';
 import 'package:eco_trip/main/home/screens/widgets/home_card.dart';
 import 'package:eco_trip/main/home/screens/widgets/search.dart';
@@ -36,11 +37,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     scale = AnimationController(
         vsync: this, value: 1.5, upperBound: 1.5, lowerBound: 1.0);
     scrollController.addListener(() {
-      _controller!.value = (10 / scrollController.offset).clamp(0.0, 1.0);
+      _controller!.value = (20 / scrollController.offset).clamp(0.0, 1.0);
       _controller!.value == 0 ? scroll = false : scroll = true;
       scale!.value = (35 / scrollController.offset);
       transitionController!.value =
-          (10 / scrollController.offset).clamp(0.45, 1.0);
+          (10 / scrollController.offset).clamp(0.42, 1.0);
       if (scale!.value == 1.5) {
         setState(() {
           scroll = false;
@@ -78,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     top: !scroll
                         ? Config().deviceHeight(context) * 0.51
                         : Config().deviceHeight(context) * 0.4,
-                    duration: const Duration(milliseconds: 10),
+                    duration: const Duration(milliseconds: 100),
                     child: Transform.scale(
                       scale: 1.2,
                       child: Container(
@@ -131,26 +132,57 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         // color: Colors.yellow.withOpacity(0.1),
                         ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                              height: 160.0,
+                              clipBehavior: Clip.none,
+                              autoPlay: false,
+                              enlargeCenterPage: true,
+                              enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                              viewportFraction: 0.33),
+                          items: [
+                            HomeTile(
+                              location: "Bengaluru",
+                              no: 10,
+                              url: "assets/images/bangalore1.jpg",
+                            ),
+                            HomeTile(
+                              location: "Magaluru",
+                              no: 3,
+                              url: "assets/images/chikkamagaluru1.jpg",
+                            ),
+                            HomeTile(
+                              location: "Belagavi",
+                              no: 5,
+                              url: "assets/images/belagavi1.jpg",
+                            ),
+                            HomeTile(
+                              location: "Bellari",
+                              no: 5,
+                              url: "assets/images/belagavi1.jpg",
+                            )
+                          ],
+                        )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          HomeTile(
-                            location: "Magaluru",
-                            no: 3,
-                            url: "assets/images/chikkamagaluru1.jpg",
+                          Text(
+                            "Popular Treks",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 22,
+                                color: scroll ? black : white),
                           ),
-                          HomeTile(
-                            location: "Bengaluru",
-                            no: 10,
-                            url: "assets/images/bangalore1.jpg",
-                            mid: true,
-                          ),
-                          HomeTile(
-                            location: "Belagavi",
-                            no: 5,
-                            url: "assets/images/belagavi1.jpg",
+                          Text(
+                            "See all",
+                            style: TextStyle(
+                                fontSize: 14, color: scroll ? black : white),
                           )
                         ],
                       ),
@@ -342,3 +374,26 @@ class CurveClipper extends CustomClipper<Path> {
 //     ),
 //   ),
 // ),
+
+
+// Row(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                         children: [
+                          // HomeTile(
+                          //   location: "Magaluru",
+                          //   no: 3,
+                          //   url: "assets/images/chikkamagaluru1.jpg",
+                          // ),
+                          // HomeTile(
+                          //   location: "Bengaluru",
+                          //   no: 10,
+                          //   url: "assets/images/bangalore1.jpg",
+                          // ),
+                          // HomeTile(
+                          //   location: "Belagavi",
+                          //   no: 5,
+                          //   url: "assets/images/belagavi1.jpg",
+                          // )
+//                         ],
+//                       ),

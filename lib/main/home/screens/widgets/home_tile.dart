@@ -27,15 +27,15 @@ class _HomeTileState extends State<HomeTile> {
   Widget build(BuildContext context) {
     return ZoomTapAnimation(
       child: Material(
-        elevation: 30,
-        shadowColor: white.withOpacity(0.2),
+        elevation: 20,
+        shadowColor: black.withOpacity(1),
         borderRadius: BorderRadius.circular(20),
         color: Colors.transparent,
         child: Container(
           // clipBehavior: Clip.hardEdge,
           width: widget.mid!
               ? Config().deviceWidth(context) * 0.33
-              : Config().deviceWidth(context) * 0.26,
+              : Config().deviceWidth(context) * 0.31,
           height: widget.mid! ? 160 : 120,
           decoration: BoxDecoration(
             image: DecorationImage(
