@@ -2,7 +2,8 @@ import 'package:eco_trip/constants/config.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {
-  SearchBar({Key? key}) : super(key: key);
+  Color? color;
+  SearchBar({Key? key, this.color}) : super(key: key);
 
   @override
   State<SearchBar> createState() => _SearchBarState();
@@ -14,8 +15,9 @@ class _SearchBarState extends State<SearchBar> {
     return Container(
       width: Config().deviceWidth(context) * 0.9,
       height: 60,
-      decoration:
-          BoxDecoration(color: white, borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(
+          color: widget.color ?? white,
+          borderRadius: BorderRadius.circular(20)),
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

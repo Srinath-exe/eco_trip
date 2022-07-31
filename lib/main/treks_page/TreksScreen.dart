@@ -26,26 +26,26 @@ class _TreksScreenState extends State<TreksScreen> {
             childAspectRatio: 0.7,
           ),
           children: [
-            TrekTile(
-              title: "Makalidurga",
-              location: widget.location,
-              imgUrl: "assets/images/trek1.webp",
-            ),
-            TrekTile(
-              title: "Anthargange",
-              location: widget.location,
-              imgUrl: "assets/images/aboutus.jpg",
-            ),
-            TrekTile(
-              title: "Ramadevara betta",
-              location: widget.location,
-              imgUrl: "assets/images/trek3.webp",
-            ),
-            TrekTile(
-              title: "Makalidurga",
-              location: widget.location,
-              imgUrl: "assets/images/trek4.webp",
-            ),
+            // TrekTile(
+            //   title: "Makalidurga",
+            //   location: widget.location,
+            //   imgUrl: "assets/images/trek1.webp",
+            // ),
+            // TrekTile(
+            //   title: "Anthargange",
+            //   location: widget.location,
+            //   imgUrl: "assets/images/aboutus.jpg",
+            // ),
+            // TrekTile(
+            //   title: "Ramadevara betta",
+            //   location: widget.location,
+            //   imgUrl: "assets/images/trek3.webp",
+            // ),
+            // TrekTile(
+            //   title: "Makalidurga",
+            //   location: widget.location,
+            //   imgUrl: "assets/images/trek4.webp",
+            // ),
           ],
         ),
       ),

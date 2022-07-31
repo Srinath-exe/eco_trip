@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:blur/blur.dart';
 import '../../../constants/config.dart';
 
 enum BackButtonTheme { light, dark, green }
@@ -37,7 +37,7 @@ class CustomBackButton extends StatefulWidget {
   CustomBackButton(
       {Key? key,
       this.onTap,
-      this.size = 50,
+      this.size = 55,
       this.icon = Icons.arrow_back_ios_new_rounded,
       this.theme = BackButtonTheme.green})
       : super(key: key);
@@ -64,13 +64,13 @@ class _CustomBackButtonState extends State<CustomBackButton> {
         child: Material(
           borderRadius: BorderRadius.all(Radius.circular(12)),
           clipBehavior: Clip.hardEdge,
-          color: themeColor.secondary,
+          color: themeColor.secondary.withOpacity(0.6),
           child: Center(
             child: Ink(
               width: size,
               height: size,
               child: InkWell(
-                splashColor: lightgreen,
+                splashColor: Colors.green,
                 onTap: widget.onTap,
                 child: Center(
                   child: Padding(
@@ -86,7 +86,7 @@ class _CustomBackButtonState extends State<CustomBackButton> {
             ),
           ),
         ),
-      ),
+      ).frosted(),
     );
   }
 }
