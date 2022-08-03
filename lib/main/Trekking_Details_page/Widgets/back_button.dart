@@ -86,7 +86,9 @@ class _CustomBackButtonState extends State<CustomBackButton> {
             ),
           ),
         ),
-      ).frosted(),
+      ).frosted(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
     );
   }
 }

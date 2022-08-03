@@ -2,6 +2,7 @@ import 'package:eco_trip/main/Trekking_Details_page/Screens/panel_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:blur/blur.dart';
 
 import '../../../constants/config.dart';
 import '../../About_Us_page/Screens/aboutus_page.dart';
@@ -21,7 +22,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: white,
       key: scaffoldkey,
       body: SlidingUpPanel(
         onPanelSlide: (val) {
@@ -46,7 +47,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
         controller: panelController,
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        minHeight: Config().deviceHeight(context) * 0.2,
+        minHeight: Config().deviceHeight(context) * 0.28,
         maxHeight: MediaQuery.of(context).size.height * 0.87,
         panel: PanelPage(open: open),
         header: headerui(),
@@ -84,20 +85,6 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
   Container trekinfo() {
     return Container(
       width: Config().deviceWidth(context),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Colors.transparent.withOpacity(0.1),
-          Colors.transparent.withOpacity(0.9),
-          Colors.black,
-          Colors.black,
-          Colors.black,
-          Colors.black,
-          Colors.black,
-        ],
-      )),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
         child: Column(

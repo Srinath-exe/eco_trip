@@ -1,6 +1,7 @@
 import 'package:eco_trip/main/navpage/main_page.dart';
 import 'package:flutter/material.dart';
 
+import 'main/Trekking_Details_page/Screens/details_homepage.dart';
 import 'main/home/screens/home_screen.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: const MainPage(),
+      home: const TrekDetailslMainpage(),
     );
   }
 }

@@ -58,6 +58,7 @@ dependencies:
   drop_shadow_image: ^0.9.1
   shadowed_image: ^1.0.3
   drop_shadow: ^0.0.1+4
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:

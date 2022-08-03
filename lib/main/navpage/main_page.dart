@@ -15,7 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentindex = 1;
+  int currentindex = 2;
   List pages = const [
     HomeScreen(),
     SearchScreen(),
