@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eco_trip/constants/config.dart';
+import 'package:eco_trip/data/trek_data.dart';
 import 'package:eco_trip/main/home/screens/home_screen.dart';
 import 'package:eco_trip/main/home/screens/widgets/trek_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,36 +33,41 @@ class _HomeCardsState extends State<HomeCards> {
                     enlargeCenterPage: true,
                     enlargeStrategy: CenterPageEnlargeStrategy.scale,
                     viewportFraction: 1),
-                items: [
-                  TrekCard(
-                    location: "Banglore, Karnataka",
-                    distance: "5.5 Kms",
-                    name: "Nandhi Hills",
-                    rating: "4.7",
-                    url: "assets/images/card1.jpg",
-                  ),
-                  TrekCard(
-                    location: "Banglore, Karnataka",
-                    distance: "5.5 Kms",
-                    name: "Nandhi Hills",
-                    rating: "4.7",
-                    url: "assets/images/nandhihills.jpg",
-                  ),
-                  TrekCard(
-                    location: "Banglore, Karnataka",
-                    distance: "5.5 Kms",
-                    name: "Nandhi Hills",
-                    rating: "4.7",
-                    url: "assets/images/nandhihills.jpg",
-                  ),
-                  TrekCard(
-                    location: "Banglore, Karnataka",
-                    distance: "5.5 Kms",
-                    name: "Nandhi Hills",
-                    rating: "4.7",
-                    url: "assets/images/nandhihills.jpg",
-                  ),
-                ],
+                items: List.generate(
+                    treks.length,
+                    (index) => TrekCard(
+                          trek: treks[index],
+                        )).toList(),
+                // [
+                //   TrekCard(
+                //     location: "Banglore, Karnataka",
+                //     distance: "5.5 Kms",
+                //     name: "Nandhi Hills",
+                //     rating: "4.7",
+                //     url: "assets/images/card1.jpg",
+                //   ),
+                //   TrekCard(
+                //     location: "Banglore, Karnataka",
+                //     distance: "5.5 Kms",
+                //     name: "Nandhi Hills",
+                //     rating: "4.7",
+                //     url: "assets/images/nandhihills.jpg",
+                //   ),
+                //   TrekCard(
+                //     location: "Banglore, Karnataka",
+                //     distance: "5.5 Kms",
+                //     name: "Nandhi Hills",
+                //     rating: "4.7",
+                //     url: "assets/images/nandhihills.jpg",
+                //   ),
+                //   TrekCard(
+                //     location: "Banglore, Karnataka",
+                //     distance: "5.5 Kms",
+                //     name: "Nandhi Hills",
+                //     rating: "4.7",
+                //     url: "assets/images/nandhihills.jpg",
+                //   ),
+                // ],
               )),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:drop_shadow/drop_shadow.dart';
 import 'package:drop_shadow_image/drop_shadow_image.dart';
+import 'package:eco_trip/data/trek_data.dart';
 import 'package:eco_trip/main/home/screens/widgets/home_card.dart';
 import 'package:eco_trip/main/home/screens/widgets/search.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,9 @@ class _SearchScreenState extends State<SearchScreen> {
         body: SafeArea(
             child: Column(
       children: [
-        AppBarMain(title: "Search"),
+        AppBarMain(
+          title: "Search",
+        ),
         // Row(
         //   mainAxisAlignment: MainAxisAlignment.center,
         //   children: [
@@ -62,108 +65,71 @@ class _SearchScreenState extends State<SearchScreen> {
         SearchBar(
           color: lightgreen.withOpacity(0.2),
         ),
-        // Row(
-        //   children: [
-        //     DateTile(
-        //         title: 'date',
-        //         date: date,
-        //         onTap: () => selectDate(
-        //             date: date,
-        //             context: context,
-        //             onSelected: (selected) {
-        //               setState(() {
-        //                 date = selected;
-        //               });
-        //             })),
-        //     DropdownTextField(
-        //       width: Config().deviceWidth(context) * 0.45,
-        //       options: ['6:00 AM', '4 :00 PM'],
-        //       searchable: false,
-        //       onSelected: (e) {
-        //         setState(() {
-        //           slotController.text = e;
-        //         });
-        //       },
-        //       labelText: "Select Slot",
-        //       controller: slotController,
-        //     ),
-        //   ],
-        // ),
+
         SizedBox(
           height: 20,
         ),
-        // Row(
-        //   children: [
-        //     TrekTile(
-        //       title: "Makalidurga",
-        //       location: "Bangalore",
-        //       imgUrl: "assets/images/trek1.webp",
-        //       distance: "5.5 Km",
-        //     ),
-        //     TrekTile(
-        //       title: "Makalidurga",
-        //       location: "Bangalore",
-        //       imgUrl: "assets/images/trek1.webp",
-        //       distance: "5.5 Km",
-        //     ),
-        //   ],
-        // ),
 
         Expanded(
           child: GridView(
             padding: const EdgeInsets.all(12),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, childAspectRatio: 0.7),
-            children: [
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-              TrekTile(
-                title: "Makalidurga",
-                location: "Bangalore",
-                imgUrl: "assets/images/trek1.webp",
-                distance: "5.5 Km",
-              ),
-            ],
+            children: List.generate(
+                treks.length,
+                (index) => TrekTile(
+                      trek: treks[index],
+                    )).toList(),
+            // [
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            //   TrekTile(
+            //     title: "Makalidurga",
+            //     location: "Bangalore",
+            //     imgUrl: "assets/images/trek1.webp",
+            //     distance: "5.5 Km",
+            //   ),
+            // ],
           ),
         ),
       ],

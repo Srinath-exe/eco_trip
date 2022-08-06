@@ -1,3 +1,4 @@
+import 'package:eco_trip/constants/config.dart';
 import 'package:eco_trip/main/Trekking_Details_page/Screens/trek_panel_pages/map.dart';
 import 'package:eco_trip/main/Trekking_Details_page/Screens/trek_panel_pages/nature_guides.dart';
 import 'package:eco_trip/main/Trekking_Details_page/Screens/trek_panel_pages/overview.dart';
@@ -21,13 +22,14 @@ class _PanelPageState extends State<PanelPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 18),
       child: TitleScrollNavigation(
-        barStyle: const TitleNavigationBarStyle(
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-          padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-          spaceBetween: 35,
-          background: Colors.white,
-        ),
+        barStyle: TitleNavigationBarStyle(
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+            spaceBetween: 35,
+            background: Colors.white,
+            activeColor: darkGreen),
         identiferStyle: NavigationIdentiferStyle(
+            color: darkGreen,
             position: IdentifierPosition.bottomAndLeft,
             width: 100.0,
             borderRadius: BorderRadius.circular(20)),

@@ -7,7 +7,7 @@ enum BackButtonTheme { light, dark, green }
 ThemeValues getTheme(BackButtonTheme theme) {
   ThemeValues light = ThemeValues(primary: darkGreen, secondary: white);
   ThemeValues dark = ThemeValues(primary: darkGreen, secondary: black);
-  ThemeValues green = ThemeValues(primary: darkGreen, secondary: lightgreen);
+  ThemeValues green = ThemeValues(primary: white, secondary: darkGreen);
   switch (theme) {
     case BackButtonTheme.dark:
       return dark;
@@ -34,9 +34,11 @@ class CustomBackButton extends StatefulWidget {
   IconData icon;
   BackButtonTheme theme;
   double size;
+  bool? ez;
   CustomBackButton(
       {Key? key,
       this.onTap,
+      this.ez = false,
       this.size = 55,
       this.icon = Icons.arrow_back_ios_new_rounded,
       this.theme = BackButtonTheme.green})
@@ -57,39 +59,59 @@ class _CustomBackButtonState extends State<CustomBackButton> {
     double size = Config().deviceHeight(context) * (widget.size * 0.001);
     ThemeValues themeColor = getTheme(widget.theme);
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        width: size,
-        height: size,
-        child: Material(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-          clipBehavior: Clip.hardEdge,
-          color: themeColor.secondary.withOpacity(0.6),
-          child: Center(
+        padding: EdgeInsets.only(
+          right: 8.0,
+          top: 8,
+          left: widget.ez == true ? 0 : 8,
+          bottom: 8,
+        ),
+        child: Container(
+          width: widget.ez == true ? size * 1.5 : size,
+          height: widget.ez == true ? size + 5 : size,
+          child: Material(
+            elevation: 10,
+            shadowColor: grey,
+            borderRadius: widget.ez == true
+                ? const BorderRadius.only(
+                    topRight: Radius.circular(12),
+                    bottomRight: Radius.circular(12))
+                : const BorderRadius.all(Radius.circular(12)),
+            clipBehavior: Clip.hardEdge,
+            color: themeColor.secondary.withOpacity(1),
             child: Ink(
-              width: size,
-              height: size,
+              // width: size,
+              // height: size,
               child: InkWell(
                 splashColor: Colors.green,
                 onTap: widget.onTap,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 2.0),
-                    child: Icon(
-                      widget.icon,
-                      color: themeColor.primary,
-                      size: 18,
+                child: Row(
+                  mainAxisAlignment: widget.ez == true
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          right: widget.ez == true ? 16.0 : 0,
+                          left: widget.ez == true ? 0 : 2),
+                      child: Icon(
+                        widget.icon,
+                        color: themeColor.primary,
+                        size: 22,
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
           ),
-        ),
-      ).frosted(
-        borderRadius: BorderRadius.all(Radius.circular(12)),
-      ),
-    );
+        )
+        // .frosted(
+        //   borderRadius: widget.ez == true
+        //       ? const BorderRadius.only(
+        //           topRight: Radius.circular(12), bottomRight: Radius.circular(12))
+        //       : const BorderRadius.all(Radius.circular(0)),
+        // ),
+        );
   }
 }
 
@@ -120,22 +142,22 @@ class _CustomIconButtonState extends State<CustomIconButton> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         child: Material(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
           clipBehavior: Clip.hardEdge,
-          color: Color(0xff24A645).withOpacity(0.07),
+          color: const Color(0xff24A645).withOpacity(0.07),
           child: Center(
             child: Ink(
               width: 32.0,
               height: 32.0,
               child: InkWell(
-                splashColor: Color(0xff24A645).withOpacity(0.5),
+                splashColor: const Color(0xff24A645).withOpacity(0.5),
                 onTap: () {
                   widget.onTap();
                 },
                 child: Center(
                   child: Icon(
                     widget.iconData,
-                    color: Color(0xff24A645),
+                    color: const Color(0xff24A645),
                     size: 24,
                   ),
                 ),

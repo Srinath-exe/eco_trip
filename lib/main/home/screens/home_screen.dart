@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:eco_trip/main/home/screens/widgets/float_couralSlider.dart';
 import 'package:eco_trip/main/home/screens/widgets/home_card.dart';
+import 'package:eco_trip/main/home/screens/widgets/menubar.dart';
 import 'package:eco_trip/main/home/screens/widgets/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 
 import '../../../constants/config.dart';
 import '../../news/widgets/news_tile.dart';
@@ -14,7 +16,8 @@ import '../../treks_page/widgets/trek_tile.dart';
 import 'widgets/home_tile.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  Function()? onTap;
+  HomeScreen({Key? key, this.onTap}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -148,20 +151,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               url: "assets/images/bangalore1.jpg",
                             ),
                             HomeTile(
-                              location: "Magaluru",
-                              no: 3,
-                              url: "assets/images/chikkamagaluru1.jpg",
-                            ),
-                            HomeTile(
                               location: "Belagavi",
                               no: 5,
                               url: "assets/images/belagavi1.jpg",
                             ),
                             HomeTile(
+                              location: "Chikkamagaluru ",
+                              no: 3,
+                              url: "assets/images/chikkamagaluru1.jpg",
+                            ),
+                            HomeTile(
                               location: "Bellari",
-                              no: 5,
-                              url: "assets/images/belagavi1.jpg",
-                            )
+                              no: 3,
+                              url: "assets/images/bellari.png",
+                            ),
                           ],
                         )),
                     const SizedBox(
@@ -188,6 +191,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     HomeCards(),
+                    SizedBox(
+                      height: 30,
+                    )
                   ],
                 ),
                 AnimatedPositioned(
@@ -206,10 +212,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.menu_rounded,
-                            size: 32,
-                            color: white,
+                          InkWell(
+                            onTap: widget.onTap,
+                            child: Icon(
+                              Icons.menu_rounded,
+                              size: 32,
+                              color: white,
+                            ),
                           ),
                         ],
                       ),

@@ -1,3 +1,4 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/config.dart';
@@ -17,82 +18,102 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          AppBarMain(title: "Profile"),
-          profileDetails(),
-          SizedBox(
-            height: Config().deviceHeight(context) * 0.03,
-          ),
-          buttontile(title: "History", icon: Icons.history, onTap: () {}),
-          buttontile(
-              title: "Privacy & Settings", icon: Icons.settings, onTap: () {}),
-          buttontile(
-              title: "About",
-              icon: Icons.info,
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => AboutUs(),
-                //   ),
-                // );
-              }),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              signout(title: "Sign out", icon: Icons.logout, onTap: () {})
-            ],
-          )
-        ],
-      ),
+            child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        AppBarMain(title: "Profile"),
+        profileDetails(),
+        SizedBox(
+          height: Config().deviceHeight(context) * 0.03,
+        ),
+        buttontile(title: "History", icon: Icons.history, onTap: () {}),
+        buttontile(
+            title: "Privacy & Settings", icon: Icons.settings, onTap: () {}),
+        buttontile(
+            title: "About",
+            icon: Icons.info,
+            onTap: () {
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => AboutUs(),
+              //   ),
+              // );
+            }),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            signout(title: "Sign out", icon: Icons.logout, onTap: () {})
+          ],
+        )
+      ],
     )));
   }
 
   profileDetails() {
     return Container(
-      child: Column(
+      padding: EdgeInsets.all(16),
+      child: Row(
         children: [
-          Container(
-            width: Config().deviceWidth(context) * 0.4,
-            height: Config().deviceWidth(context) * 0.4,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                width: 1,
-                color: Colors.green.withOpacity(0.2),
-                style: BorderStyle.solid,
-              ),
-            ),
-            alignment: Alignment.center,
-            child: Container(
-              alignment: Alignment.center,
-              clipBehavior: Clip.hardEdge,
-              width: Config().deviceWidth(context) * 0.5,
-              height: Config().deviceWidth(context) * 0.32,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  width: 3,
-                  color: Colors.green.withOpacity(0.6),
-                  style: BorderStyle.solid,
+          // Container(
+          //   width: Config().deviceWidth(context) * 0.4,
+          //   height: Config().deviceWidth(context) * 0.4,
+          //   decoration: BoxDecoration(
+          //     shape: BoxShape.circle,
+          //     border: Border.all(
+          //       width: 1,
+          //       color: Colors.green.withOpacity(0.2),
+          //       style: BorderStyle.solid,
+          //     ),
+          //   ),
+          //   alignment: Alignment.center,
+          //   child: Container(
+          //     alignment: Alignment.center,
+          //     clipBehavior: Clip.hardEdge,
+          //     width: Config().deviceWidth(context) * 0.5,
+          //     height: Config().deviceWidth(context) * 0.32,
+          //     decoration: BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       border: Border.all(
+          //         width: 3,
+          //         color: Colors.green.withOpacity(0.6),
+          //         style: BorderStyle.solid,
+          //       ),
+          //     ),
+          //     child: Icon(
+          //       Icons.person,
+          //       size: 150,
+          //       color: Colors.green.withOpacity(0.2),
+          //     ),
+          //   ),
+          // ),
+          AvatarGlow(
+              glowColor: darkGreen,
+              endRadius: 60.0,
+              duration: const Duration(milliseconds: 2000),
+              repeat: true,
+              showTwoGlows: true,
+              repeatPauseDuration: const Duration(milliseconds: 100),
+              child: Material(
+                elevation: 10,
+                shape: CircleBorder(),
+                child: Container(
+                  width: Config().deviceWidth(context) * 0.3,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Image.asset("assets/images/avatar.png"),
                 ),
-              ),
-              child: Icon(
-                Icons.person,
-                size: 150,
-                color: Colors.green.withOpacity(0.2),
-              ),
-            ),
-          ),
+              )),
           SizedBox(
-            height: Config().deviceHeight(context) * 0.03,
+            width: Config().deviceWidth(context) * 0.01,
           ),
-          title("Wade Hudson", 24),
-          title("WadeHudson@gmail.com", 15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              title("Wade Hudson", 24),
+              title("WadeHudson@gmail.com", 15),
+            ],
+          )
         ],
       ),
     );
@@ -100,13 +121,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   title(String s, double? size) {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(2.0),
       child: Text(
         s,
         style: TextStyle(
-            color: Colors.green.shade800,
-            fontWeight: FontWeight.w500,
-            fontSize: size),
+            color: darkGreen, fontWeight: FontWeight.w500, fontSize: size),
       ),
     );
   }
@@ -117,9 +136,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       required void Function()? onTap}) {
     return Container(
       width: Config().deviceWidth(context) * 0.96,
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: ListTile(
-        contentPadding: EdgeInsets.only(
+        contentPadding: const EdgeInsets.only(
           right: 16,
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -144,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       required void Function()? onTap}) {
     return Container(
       width: Config().deviceWidth(context) * 0.45,
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: ListTile(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         tileColor: Colors.red.withOpacity(0.1),

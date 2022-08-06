@@ -19,7 +19,7 @@ class ThemeButton extends StatefulWidget {
       this.txtColor = Colors.white,
       this.elevation = 2,
       required this.text,
-      this.bgColor = const Color(0xff272F3E),
+      this.bgColor = const Color(0xff0e4b40),
       this.padding = 10,
       this.height = 50,
       this.fontsize = 14,
@@ -60,7 +60,7 @@ class _ThemeButtonState extends State<ThemeButton> {
                         ? BorderSide(width: 3, color: widget.bgColor!)
                         : BorderSide.none,
                     borderRadius: BorderRadius.circular(10)),
-                elevation: 0,
+                elevation: widget.elevation,
                 primary: Colors.white)),
       ),
     );

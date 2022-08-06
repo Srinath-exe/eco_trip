@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/config.dart';
+import '../../../data/news_data.dart';
 import '../../Trekking_Details_page/Widgets/back_button.dart';
 
 class NewsTile extends StatefulWidget {
-  String title;
-  String description;
-  void Function()? ontap;
-  String imgurl;
-  NewsTile(
-      {Key? key,
-      required this.description,
-      required this.imgurl,
-      this.ontap,
-      required this.title})
-      : super(key: key);
+  News news;
+  NewsTile({Key? key, required this.news}) : super(key: key);
 
   @override
   State<NewsTile> createState() => _NewsTileState();
@@ -58,7 +50,7 @@ class _NewsTileState extends State<NewsTile> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            widget.title,
+                            widget.news.title,
                             style: const TextStyle(
                                 color: Colors.black,
                                 letterSpacing: 0.8,
@@ -69,7 +61,7 @@ class _NewsTileState extends State<NewsTile> {
                             height: Config().deviceHeight(context) * 0.01,
                           ),
                           Text(
-                            widget.description,
+                            widget.news.description,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -103,7 +95,7 @@ class _NewsTileState extends State<NewsTile> {
       child: Container(
         alignment: Alignment.center,
         child: img(
-          widget.imgurl,
+          widget.news.imgs[0],
         ),
       ),
     );

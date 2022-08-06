@@ -17,7 +17,11 @@ class _AppBarMainState extends State<AppBarMain> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(
+          right: 8.0,
+          top: 8,
+          bottom: 8,
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,6 +36,7 @@ class _AppBarMainState extends State<AppBarMain> {
                   ),
                 );
               },
+              ez: true,
             ),
             Padding(
               padding:

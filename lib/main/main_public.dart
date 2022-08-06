@@ -7,7 +7,6 @@ import 'home/screens/home_screen.dart';
 import 'modal-screen.dart';
 import 'screens.dart';
 
-
 late BuildContext testContext;
 
 class MainPublic extends StatelessWidget {
@@ -42,7 +41,7 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const  Text("Sample Project"),
+        title: const Text("Sample Project"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -76,21 +75,12 @@ class _MainMenuState extends State<MainMenu> {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 // ----------------------------------------- Provided Style ----------------------------------------- //
 
 class ProvidedStylesExample extends StatefulWidget {
   final BuildContext menuScreenContext;
-  ProvidedStylesExample({Key? key, required this.menuScreenContext}) : super(key: key);
+  ProvidedStylesExample({Key? key, required this.menuScreenContext})
+      : super(key: key);
 
   @override
   _ProvidedStylesExampleState createState() => _ProvidedStylesExampleState();
@@ -188,8 +178,8 @@ class _ProvidedStylesExampleState extends State<ProvidedStylesExample> {
           routeAndNavigatorSettings: RouteAndNavigatorSettings(
             initialRoute: '/',
             routes: {
-              '/first': (context) => const HomeScreen(),
-              '/second': (context) => const HomeScreen(),
+              '/first': (context) => HomeScreen(),
+              '/second': (context) => HomeScreen(),
             },
           ),
           onPressed: (context) {
@@ -341,7 +331,7 @@ class CustomNavBarWidget extends StatelessWidget {
               type: MaterialType.transparency,
               child: FittedBox(
                   child: Text(
-                item.title??'',
+                item.title ?? '',
                 style: TextStyle(
                     color: isSelected
                         ? (item.activeColorSecondary == null
@@ -383,7 +373,3 @@ class CustomNavBarWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-

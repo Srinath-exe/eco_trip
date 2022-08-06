@@ -4,23 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
-class TrekCard extends StatefulWidget {
-  String name;
-  String location;
-  String rating;
-  String distance;
-  String url;
-  bool? tile;
+import '../../../../data/trek_data.dart';
 
-  TrekCard(
-      {Key? key,
-      required this.distance,
-      required this.location,
-      required this.name,
-      this.tile = false,
-      required this.rating,
-      required this.url})
-      : super(key: key);
+class TrekCard extends StatefulWidget {
+  Trek trek;
+
+  TrekCard({
+    Key? key,
+    required this.trek,
+  }) : super(key: key);
 
   @override
   State<TrekCard> createState() => _TrekCardState();
@@ -40,27 +32,6 @@ class _TrekCardState extends State<TrekCard> {
             alignment: AlignmentDirectional.center,
             clipBehavior: Clip.none,
             children: [
-              // Positioned(
-              //   bottom: -10,
-              //   child: Container(
-              //     height: 180,
-              //     clipBehavior: Clip.hardEdge,
-              //     width: Config().deviceWidth(context) * 0.85,
-              //     decoration: BoxDecoration(
-              //         // image: const DecorationImage(
-              //         //     opacity: 0.3,
-              //         //     image: AssetImage("assets/images/nandhihills.jpg").,
-              //         //     fit: BoxFit.fill),
-              //         color: black,
-              //         borderRadius: BorderRadius.circular(20)),
-              //     child: Container(
-              //       color: Colors.black.withOpacity(0.4),
-              //       child: Image.asset(widget.url, fit: BoxFit.fill)
-              //           .blurred()
-              //           .blurred(blur: 8, blurColor: black, colorOpacity: 0.4),
-              //     ),
-              //   ),
-              // ),
               Positioned(
                 bottom: -18,
                 child: DropShadow(
@@ -70,7 +41,7 @@ class _TrekCardState extends State<TrekCard> {
                   spread: 0.9,
                   offset: const Offset(0, 20),
                   child: Image.asset(
-                    widget.url,
+                    widget.trek.imgs[0],
                     fit: BoxFit.cover,
                     height: 180,
                     width: Config().deviceWidth(context) * 0.8,
@@ -85,7 +56,8 @@ class _TrekCardState extends State<TrekCard> {
                   width: Config().deviceWidth(context) * 0.95,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage(widget.url), fit: BoxFit.fill),
+                          image: AssetImage(widget.trek.imgs[0]),
+                          fit: BoxFit.fill),
                       color: white,
                       borderRadius: BorderRadius.circular(20)),
                 ),
@@ -106,7 +78,7 @@ class _TrekCardState extends State<TrekCard> {
                         ),
                       ),
                       Text(
-                        widget.distance,
+                        widget.trek.length + " Km",
                         style: TextStyle(
                             color: Colors.grey.shade800, fontSize: 12),
                       ),
@@ -128,14 +100,14 @@ class _TrekCardState extends State<TrekCard> {
                       Column(
                         children: [
                           Text(
-                            widget.name,
+                            widget.trek.name,
                             style: TextStyle(
                                 fontSize: 20,
                                 color: black,
                                 fontWeight: FontWeight.w600),
                           ),
                           Text(
-                            widget.location,
+                            "${widget.trek.location}, Karnataka",
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey.shade400,
@@ -155,7 +127,7 @@ class _TrekCardState extends State<TrekCard> {
                             width: 5,
                           ),
                           Text(
-                            widget.rating,
+                            "4.2",
                             style: TextStyle(
                                 fontSize: 16,
                                 color: darkGrey,

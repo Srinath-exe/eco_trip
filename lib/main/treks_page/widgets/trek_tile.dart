@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:drop_shadow/drop_shadow.dart';
+import 'package:eco_trip/data/trek_data.dart';
 import 'package:flutter/material.dart';
 import 'package:shadowed_image/shadowed_image.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -11,22 +12,8 @@ import '../../Trekking_Details_page/Widgets/back_button.dart';
 import 'package:blur/blur.dart';
 
 class TrekTile extends StatefulWidget {
-  String title;
-  String location;
-  String distance;
-  void Function()? onTap;
-  String imgUrl;
-  BoxFit? fit;
-
-  TrekTile(
-      {Key? key,
-      required this.location,
-      this.onTap,
-      required this.distance,
-      required this.imgUrl,
-      this.fit = BoxFit.fitHeight,
-      required this.title})
-      : super(key: key);
+  Trek trek;
+  TrekTile({Key? key, required this.trek}) : super(key: key);
 
   @override
   State<TrekTile> createState() => _TrekTileState();
@@ -48,25 +35,6 @@ class _TrekTileState extends State<TrekTile> {
             alignment: AlignmentDirectional.center,
             clipBehavior: Clip.none,
             children: [
-              // Positioned(
-              //   bottom: -12,
-              //   child: Container(
-              //     width: Config().deviceWidth(context) * 0.35,
-              //     height: Config().deviceHeight(context) * 0.20,
-              //     clipBehavior: Clip.hardEdge,
-              //     decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(20),
-              //     ),
-              //     child: DropShadow(
-              //       child: Image.asset(
-              //         widget.imgUrl,
-              //         fit: BoxFit.cover,
-              //         width: Config().deviceWidth(context) * 0.35,
-              //         height: Config().deviceHeight(context) * 0.20,
-              //       ),
-              //     ),
-              //   ),
-              // ),
               Positioned(
                 bottom: -20,
                 left: 10,
@@ -76,7 +44,7 @@ class _TrekTileState extends State<TrekTile> {
                   spread: 0.9,
                   offset: const Offset(0, 20),
                   child: Image.asset(
-                    widget.imgUrl,
+                    widget.trek.imgs[0],
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -86,13 +54,12 @@ class _TrekTileState extends State<TrekTile> {
                 width: Config().deviceWidth(context) * 0.42,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(widget.imgUrl),
+                    image: AssetImage(widget.trek.imgs[0]),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-
               Positioned(
                 right: 8,
                 top: 8,
@@ -109,7 +76,7 @@ class _TrekTileState extends State<TrekTile> {
                         ),
                       ),
                       Text(
-                        widget.distance,
+                        "${widget.trek.length} Km",
                         style: TextStyle(
                             color: Colors.grey.shade800,
                             fontSize: 12,
@@ -134,14 +101,14 @@ class _TrekTileState extends State<TrekTile> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            widget.title,
+                            widget.trek.name,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: black,
                                 fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            widget.location,
+                            "${widget.trek.location}, Karnataka",
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey.shade400,
