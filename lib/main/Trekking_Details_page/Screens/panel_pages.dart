@@ -8,9 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:scroll_navigation/misc/navigation_helpers.dart';
 import 'package:scroll_navigation/navigation/title_scroll_navigation.dart';
 
+import '../../../data/trek_data.dart';
+
 class PanelPage extends StatefulWidget {
   bool open;
-  PanelPage({Key? key, required this.open}) : super(key: key);
+  Trek trek;
+  PanelPage({Key? key, required this.open, required this.trek})
+      : super(key: key);
 
   @override
   State<PanelPage> createState() => _PanelPageState();
@@ -40,8 +44,10 @@ class _PanelPageState extends State<PanelPage> {
           "Nature Guides",
         ],
         pages: [
-          Overview(open: widget.open),
-          const TrekInfo(),
+          Overview(open: widget.open, trek: widget.trek),
+          TrekInfo(
+            trek: widget.trek,
+          ),
           const TrekMap(),
           const NatureGuides(),
         ],

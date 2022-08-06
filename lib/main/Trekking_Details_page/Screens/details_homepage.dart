@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:blur/blur.dart';
 
 import '../../../constants/config.dart';
-import '../../About_Us_page/Screens/aboutus_page.dart';
+import '../../../data/trek_data.dart';
 import '../Widgets/back_button.dart';
 
 class TrekDetailslMainpage extends StatefulWidget {
-  const TrekDetailslMainpage({Key? key}) : super(key: key);
+  Trek trek;
+  TrekDetailslMainpage({Key? key, required this.trek}) : super(key: key);
 
   @override
   State<TrekDetailslMainpage> createState() => TrekDetailslMainpageState();
@@ -57,7 +57,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
                 topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         minHeight: Config().deviceHeight(context) * 0.28,
         maxHeight: MediaQuery.of(context).size.height * 0.87,
-        panel: PanelPage(open: open),
+        panel: PanelPage(open: open, trek: widget.trek),
         header: headerui(),
         body: Stack(children: [
           trekimg(),
@@ -98,8 +98,8 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
             ),
             height: Config().deviceHeight(context) * 0.4,
             width: Config().deviceWidth(context),
-            child: const Image(
-              image: AssetImage("assets/images/nandhihills.jpg"),
+            child: Image(
+              image: AssetImage(widget.trek.imgs[0]),
               fit: BoxFit.cover,
             )),
       ]),
@@ -122,7 +122,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Kaiwara Betta",
+                      widget.trek.name,
                       style: TextStyle(
                           letterSpacing: 0.6,
                           color: black,
@@ -133,7 +133,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
                       height: 4,
                     ),
                     Text(
-                      "Bangalore , Karnataka",
+                      "${widget.trek.location}, Karnataka",
                       style: TextStyle(
                           color: black.withOpacity(0.4),
                           fontSize: 14,
@@ -169,7 +169,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
               child: SizedBox(
                 width: Config().deviceWidth(context) * 0.9,
                 child: Text(
-                  "If you are fascinated by mythology, pack your backpacks and head to Kaiwara, a little village in Chikballapur earlier known as Ekachakrapura. Situated about 65 km from Bengaluru,&nbsp :",
+                  widget.trek.description,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -190,7 +190,7 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
                 children: [
                   ThemeButton(
                     elevation: 4,
-                    text: "Check Availability",
+                    text: "Book Now",
                     width: Config().deviceWidth(context) * 0.6,
                   ),
                 ],
@@ -255,9 +255,9 @@ class TrekDetailslMainpageState extends State<TrekDetailslMainpage> {
               Positioned(
                   top: Config().deviceHeight(context) * 0.07,
                   right: Config().deviceHeight(context) * 0.03,
-                  child: const Text(
-                    "Kaiwara Betta",
-                    style: TextStyle(color: Colors.black, fontSize: 28),
+                  child: Text(
+                    widget.trek.name,
+                    style: const TextStyle(color: Colors.black, fontSize: 28),
                   )),
             ],
           ),

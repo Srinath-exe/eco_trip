@@ -30,16 +30,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
         buttontile(
             title: "Privacy & Settings", icon: Icons.settings, onTap: () {}),
         buttontile(
-            title: "About",
-            icon: Icons.info,
-            onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => AboutUs(),
-              //   ),
-              // );
-            }),
+          title: "About",
+          icon: Icons.info,
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return const AboutUs();
+            }));
+          },
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

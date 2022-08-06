@@ -62,6 +62,7 @@ dependencies:
   avatar_glow: ^2.0.2
   kf_drawer: ^1.2.1
   shrink_sidemenu: ^2.0.0+2-null-safety
+  animations: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -97,8 +98,8 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lottie/
-    - assets/images/news
-    - assets/images/trek
+    - assets/images/news/ 
+    - assets/images/trek/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

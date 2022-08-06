@@ -38,36 +38,6 @@ class _HomeCardsState extends State<HomeCards> {
                     (index) => TrekCard(
                           trek: treks[index],
                         )).toList(),
-                // [
-                //   TrekCard(
-                //     location: "Banglore, Karnataka",
-                //     distance: "5.5 Kms",
-                //     name: "Nandhi Hills",
-                //     rating: "4.7",
-                //     url: "assets/images/card1.jpg",
-                //   ),
-                //   TrekCard(
-                //     location: "Banglore, Karnataka",
-                //     distance: "5.5 Kms",
-                //     name: "Nandhi Hills",
-                //     rating: "4.7",
-                //     url: "assets/images/nandhihills.jpg",
-                //   ),
-                //   TrekCard(
-                //     location: "Banglore, Karnataka",
-                //     distance: "5.5 Kms",
-                //     name: "Nandhi Hills",
-                //     rating: "4.7",
-                //     url: "assets/images/nandhihills.jpg",
-                //   ),
-                //   TrekCard(
-                //     location: "Banglore, Karnataka",
-                //     distance: "5.5 Kms",
-                //     name: "Nandhi Hills",
-                //     rating: "4.7",
-                //     url: "assets/images/nandhihills.jpg",
-                //   ),
-                // ],
               )),
         ],
       ),

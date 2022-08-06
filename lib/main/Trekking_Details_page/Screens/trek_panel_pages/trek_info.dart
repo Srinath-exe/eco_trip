@@ -1,8 +1,11 @@
+import 'package:eco_trip/constants/config.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data/trek_data.dart';
 
 class TrekInfo extends StatefulWidget {
-  const TrekInfo({Key? key}) : super(key: key);
+  Trek trek;
+  TrekInfo({Key? key, required this.trek}) : super(key: key);
 
   @override
   State<TrekInfo> createState() => _TrekInfoState();
@@ -18,26 +21,66 @@ class _TrekInfoState extends State<TrekInfo> {
           const SizedBox(
             height: 20,
           ),
-          Wrap(
+          // Wrap(
+          //   children: [
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.start,
+          //       children: [
+          //         dataCell("Location", "Bangalore"),
+          //         dataCell("Length", "1.30 KM"),
+          //         dataCell("Duration", "3.00 Hour"),
+          //       ],
+          //     ),
+          //     Row(
+          //       mainAxisAlignment: MainAxisAlignment.start,
+          //       children: [
+          //         dataCell("Difficulty", "Difficult"),
+          //         dataCell("Everyday", "6:30 AM"),
+          //       ],
+          //     ),
+          //     dataCell("Start",
+          //         "Main Gate Of  Kaiwara Tapovana at Shamaraohosapete Village"),
+          //     dataCell("Ends", "Mylapurabetta View Point"),
+          //   ],
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  dataCell("Location", "Bangalore"),
-                  dataCell("Length", "1.30 KM"),
-                  dataCell("Duration", "3.00 Hour"),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  dataCell("Difficulty", "Difficult"),
-                  dataCell("Everyday", "6:30 AM"),
-                ],
-              ),
-              dataCell("Start",
-                  "Main Gate Of  Kaiwara Tapovana at Shamaraohosapete Village"),
-              dataCell("Ends", "Mylapurabetta View Point"),
+              Text(
+                "${widget.trek.location} ,Karnataka",
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+          Stack(
+            children: [
+              Image.asset("assets/images/trekmap.png"),
+              Positioned(
+                  top: 42,
+                  child: SizedBox(
+                    width: Config().deviceWidth(context) * 0.5,
+                    child: dataCell("Start", widget.trek.start, sike: true),
+                  )),
+              Positioned(
+                  top: 160,
+                  left: 20,
+                  child: dataCell("Distance", "${widget.trek.length} Km")),
+              Positioned(
+                  left: 210,
+                  top: 385,
+                  child: dataCell("Duration", "${widget.trek.duration} Hrs")),
+              Positioned(
+                  top: 240,
+                  left: 150,
+                  child: dataCell("Everyday at", widget.trek.time)),
+              Positioned(
+                  top: 430,
+                  left: 0,
+                  child: dataCell("Difficulty", widget.trek.difficulty)),
+              Positioned(
+                  bottom: 50,
+                  left: 150,
+                  child: dataCell("End", widget.trek.end, sike: true)),
             ],
           ),
           const Padding(
@@ -53,28 +96,42 @@ class _TrekInfoState extends State<TrekInfo> {
     );
   }
 
-  dataCell(String title, String info) {
+  dataCell(String title, String info, {bool? sike}) {
+    sike == null ? sike = false : null;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            info,
-            style: TextStyle(
-                fontSize: 18,
-                color: Colors.green.shade900,
-                fontWeight: FontWeight.w500),
+      child: Material(
+        color: sike ? Colors.transparent : white,
+        shadowColor: sike
+            ? Colors.transparent
+            : const Color(0xff8BC543).withOpacity(0.5),
+        elevation: sike ? 0 : 20,
+        borderRadius: BorderRadius.circular(10),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                info,
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.green.shade900,
+                    fontWeight: FontWeight.w500),
+              ),
+              const SizedBox(
+                height: 2,
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12),
+              )
+            ],
           ),
-          const SizedBox(
-            height: 2,
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-                color: Colors.grey, fontWeight: FontWeight.w500, fontSize: 14),
-          )
-        ],
+        ),
       ),
     );
   }

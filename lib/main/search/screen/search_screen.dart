@@ -80,56 +80,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 (index) => TrekTile(
                       trek: treks[index],
                     )).toList(),
-            // [
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            //   TrekTile(
-            //     title: "Makalidurga",
-            //     location: "Bangalore",
-            //     imgUrl: "assets/images/trek1.webp",
-            //     distance: "5.5 Km",
-            //   ),
-            // ],
           ),
         ),
       ],

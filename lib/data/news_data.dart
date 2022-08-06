@@ -26,10 +26,10 @@ Limited seats available on first come first serve basis
 Interested can register, the registrations will be closed in a week.
 The registration fees includes accommodation on twin sharing basis, food ,kit bag, and local transportation (pick up and drop to bird trails )""",
       imgs: [
-        "assets/images/news/news1.png"
-            "assets/images/news/news1sub1.png"
-            "assets/images/news/news1sub2.png"
-            "assets/images/news/news1sub3.png"
+        "assets/images/news/news1.png",
+            "assets/images/news/news1sub1.png",
+            "assets/images/news/news1sub2.png",
+            "assets/images/news/news1sub3.png",
       ]),
   News(
       title: "Coffee Table Book",
@@ -64,10 +64,10 @@ We do not provide any booking for the hotels.
 Please contact the below-mentioned numbers and confirm your hotel booking.
 One can also book any other hotel of their choice.""",
       imgs: [
-        "assets/images/news/news3.png"
-            "assets/images/news/news3sub1.png"
-            "assets/images/news/news3sub2.png"
-            "assets/images/news/news3sub3.png"
+        "assets/images/news/news3.png",
+            "assets/images/news/news3sub1.png",
+            "assets/images/news/news3sub2.png",
+            "assets/images/news/news3sub3.png",
       ]),
   // News(title: title, description: description, imgs: imgs)
 ];

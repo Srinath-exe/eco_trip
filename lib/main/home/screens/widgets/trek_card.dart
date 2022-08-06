@@ -1,5 +1,6 @@
 import 'package:drop_shadow/drop_shadow.dart';
 import 'package:eco_trip/constants/config.dart';
+import 'package:eco_trip/main/Trekking_Details_page/Screens/details_homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:blur/blur.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
@@ -24,6 +25,14 @@ class _TrekCardState extends State<TrekCard> {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: ZoomTapAnimation(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+            return TrekDetailslMainpage(
+              trek: widget.trek,
+            );
+          }));
+        },
         child: Material(
           elevation: 0,
           shadowColor: Colors.black,

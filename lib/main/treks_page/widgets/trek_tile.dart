@@ -27,6 +27,14 @@ class _TrekTileState extends State<TrekTile> {
     return Padding(
       padding: const EdgeInsets.only(left: 12, right: 12, bottom: 65, top: 12),
       child: ZoomTapAnimation(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+            return TrekDetailslMainpage(
+              trek: widget.trek,
+            );
+          }));
+        },
         child: Container(
           width: width,
           // height: height,
@@ -103,7 +111,7 @@ class _TrekTileState extends State<TrekTile> {
                           Text(
                             widget.trek.name,
                             style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 color: black,
                                 fontWeight: FontWeight.w500),
                           ),

@@ -1,3 +1,5 @@
+import 'package:eco_trip/main/About_Us_page/Screens/aboutus_page.dart';
+import 'package:eco_trip/main/navpage/main_page.dart';
 import 'package:flutter/material.dart';
 
 Widget buildMenu(BuildContext context) {
@@ -27,7 +29,12 @@ Widget buildMenu(BuildContext context) {
         ),
         ListTile(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return MainPage(
+                index: 0,
+              );
+            }));
           },
           leading: const Icon(Icons.home, size: 20.0, color: Colors.white),
           title: const Text("Home"),
@@ -35,7 +42,14 @@ Widget buildMenu(BuildContext context) {
           dense: true,
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return MainPage(
+                index: 3,
+              );
+            }));
+          },
           leading:
               const Icon(Icons.verified_user, size: 20.0, color: Colors.white),
           title: const Text("Profile"),
@@ -45,20 +59,34 @@ Widget buildMenu(BuildContext context) {
           // padding: EdgeInsets.zero,
         ),
         ListTile(
-          onTap: () {},
-          leading: const Icon(Icons.monetization_on,
-              size: 20.0, color: Colors.white),
-          title: const Text("Wallet"),
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return MainPage(
+                index: 1,
+              );
+            }));
+          },
+          leading:
+              const Icon(Icons.hiking_rounded, size: 20.0, color: Colors.white),
+          title: const Text("Treks"),
           textColor: Colors.white,
           dense: true,
 
           // padding: EdgeInsets.zero,
         ),
         ListTile(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return MainPage(
+                index: 1,
+              );
+            }));
+          },
           leading:
-              const Icon(Icons.shopping_cart, size: 20.0, color: Colors.white),
-          title: const Text("Cart"),
+              const Icon(Icons.search_rounded, size: 20.0, color: Colors.white),
+          title: const Text("Discover"),
           textColor: Colors.white,
           dense: true,
 
@@ -75,14 +103,28 @@ Widget buildMenu(BuildContext context) {
           // padding: EdgeInsets.zero,
         ),
         ListTile(
-          onTap: () {},
-          leading: const Icon(Icons.settings, size: 20.0, color: Colors.white),
-          title: const Text("Settings"),
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return const AboutUs();
+            }));
+          },
+          leading: const Icon(Icons.info_outline_rounded,
+              size: 20.0, color: Colors.white),
+          title: const Text("About Us"),
           textColor: Colors.white,
           dense: true,
 
           // padding: EdgeInsets.zero,
         ),
+        SizedBox(
+          height: 100,
+        ),
+        Image.asset(
+          "assets/images/newsletter.png",
+          width: 300,
+          fit: BoxFit.fitWidth,
+        )
       ],
     ),
   );

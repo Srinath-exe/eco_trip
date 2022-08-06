@@ -10,18 +10,20 @@ import '../profile/screen/profile_screen.dart';
 import '../search/screen/search_screen.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  int? index;
+  MainPage({Key? key, this.index = 0}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  int currentindex = 0;
+  late int currentindex;
   final GlobalKey<SideMenuState> _sideMenuKey = GlobalKey<SideMenuState>();
   late List pages;
   @override
   void initState() {
+    currentindex = widget.index!;
     super.initState();
     pages = [
       HomeScreen(

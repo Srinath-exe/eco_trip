@@ -1,4 +1,6 @@
+import 'package:eco_trip/main/news/screens/news_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../../../constants/config.dart';
 import '../../../data/news_data.dart';
@@ -19,72 +21,82 @@ class _NewsTileState extends State<NewsTile> {
       padding: const EdgeInsets.symmetric(
         horizontal: 4,
       ),
-      child: Column(
-        children: [
-          Material(
-            color: white,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10))),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              borderRadius: BorderRadius.circular(10),
-              onTap: () {},
-              child: Container(
-                padding: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    layout2(),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Container(
-                      width: Config().deviceWidth(context) * 0.5,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            widget.news.title,
-                            style: const TextStyle(
-                                color: Colors.black,
-                                letterSpacing: 0.8,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16),
-                          ),
-                          SizedBox(
-                            height: Config().deviceHeight(context) * 0.01,
-                          ),
-                          Text(
-                            widget.news.description,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: darkGrey,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12),
-                          ),
-                        ],
+      child: ZoomTapAnimation(
+        onTap: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+            return NewsDetail(
+              news: widget.news,
+            );
+          }));
+        },
+        child: Column(
+          children: [
+            Material(
+              color: white,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10))),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                borderRadius: BorderRadius.circular(10),
+                //  onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(4.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      layout2(),
+                      SizedBox(
+                        width: 16,
                       ),
-                    ),
-                  ],
+                      Container(
+                        width: Config().deviceWidth(context) * 0.5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              widget.news.title,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  letterSpacing: 0.8,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16),
+                            ),
+                            SizedBox(
+                              height: Config().deviceHeight(context) * 0.01,
+                            ),
+                            Text(
+                              widget.news.description,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: darkGrey,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 26.0),
-            child: Divider(
-              thickness: 1.2,
-              color: grey,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 26.0),
+              child: Divider(
+                thickness: 1.2,
+                color: grey,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

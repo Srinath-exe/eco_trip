@@ -1,5 +1,8 @@
+import 'package:eco_trip/main/Trekking_Details_page/Screens/details_homepage.dart';
 import 'package:eco_trip/main/navpage/main_page.dart';
 import 'package:flutter/material.dart';
+
+import 'data/trek_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
+            TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          },
+        ),
       ),
-      home: const MainPage(),
+      home: MainPage(),
     );
   }
 }
