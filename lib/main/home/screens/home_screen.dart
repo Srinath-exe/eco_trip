@@ -12,6 +12,7 @@ import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 
 import '../../../constants/config.dart';
 import '../../../data/trek_data.dart';
+import '../../navpage/main_page.dart';
 import '../../news/widgets/news_tile.dart';
 import '../../treks_page/widgets/trek_tile.dart';
 import 'widgets/home_tile.dart';
@@ -232,6 +233,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               Icons.menu_rounded,
                               size: 32,
                               color: white,
+                            ),
+                          ),
+                          Material(
+                            elevation: 10,
+                            shape: CircleBorder(),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(100),
+                              onTap: () {
+                                Navigator.of(context).push(
+                                    MaterialPageRoute<void>(
+                                        builder: (BuildContext context) {
+                                  return MainPage(
+                                    index: 3,
+                                  );
+                                }));
+                              },
+                              child: Container(
+                                width: Config().deviceWidth(context) * 0.1,
+                                clipBehavior: Clip.hardEdge,
+                                decoration:
+                                    BoxDecoration(shape: BoxShape.circle),
+                                child: Lottie.asset(
+                                  'assets/lottie/avatar.json',
+                                  // width: Config().deviceWidth(context) * 0.1,
+                                ),
+                              ),
                             ),
                           ),
                         ],

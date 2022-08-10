@@ -15,6 +15,7 @@ class HomeCards extends StatefulWidget {
 }
 
 class _HomeCardsState extends State<HomeCards> {
+  List<Trek> trekrev = treks.reversed.toList();
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(

@@ -139,12 +139,19 @@ BottomNavigationBarItem navItem({
         clipBehavior: Clip.none,
         alignment: AlignmentDirectional.topCenter,
         children: [
-          SvgIcon(
-              color: currentIndex == index ? darkGreen : Colors.grey,
-              path: "${name}.svg"),
+          Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              SvgIcon(
+                  color: currentIndex == index ? darkGreen : Colors.grey,
+                  path: "${name}.svg"),
+            ],
+          ),
           AnimatedPositioned(
               duration: const Duration(milliseconds: 100),
-              bottom: currentIndex == index ? -22 : -50,
+              bottom: currentIndex == index ? -24 : -50,
               child: Image.asset(
                 "assets/images/navbottom.png",
                 width: 36,

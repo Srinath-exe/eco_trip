@@ -107,6 +107,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/lottie/
+    - assets/fonts/
     - assets/images/news/ 
     - assets/images/trek/
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -120,13 +121,30 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+  fonts:
+    - family: Saira
+      fonts:        
+        - asset: "assets/fonts/Saira/Saira-ExtraBold.ttf"
+        - asset: "assets/fonts/Saira/Saira-ExtraBoldItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-ExtraLight.ttf"
+        - asset: "assets/fonts/Saira/Saira-ExtraLightItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Italic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Light.ttf"
+        - asset: "assets/fonts/Saira/Saira-LightItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Medium.ttf"
+        - asset: "assets/fonts/Saira/Saira-MediumItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Regular.ttf"
+        - asset: "assets/fonts/Saira/Saira-SemiBold.ttf"
+        - asset: "assets/fonts/Saira/Saira-SemiBoldItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Thin.ttf"
+        - asset: "assets/fonts/Saira/Saira-ThinItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Black.ttf"
+        - asset: "assets/fonts/Saira/Saira-BlackItalic.ttf"
+        - asset: "assets/fonts/Saira/Saira-Bold.ttf"
+        - asset: "assets/fonts/Saira/Saira-BoldItalic.ttf"
+
+ 
+    # - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf

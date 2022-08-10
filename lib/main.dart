@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           platform: TargetPlatform.iOS,
           primarySwatch: Colors.blue,
+          fontFamily: 'Saira',
           pageTransitionsTheme: const PageTransitionsTheme(
             builders: <TargetPlatform, PageTransitionsBuilder>{
               TargetPlatform.android: ZoomPageTransitionsBuilder(),
