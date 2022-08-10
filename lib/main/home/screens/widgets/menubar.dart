@@ -1,6 +1,9 @@
 import 'package:eco_trip/main/About_Us_page/Screens/aboutus_page.dart';
 import 'package:eco_trip/main/navpage/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../../../constants/config.dart';
 
 Widget buildMenu(BuildContext context) {
   return SingleChildScrollView(
@@ -13,10 +16,19 @@ Widget buildMenu(BuildContext context) {
           padding: const EdgeInsets.only(left: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 22.0,
+            children: [
+              Material(
+                elevation: 10,
+                shape: CircleBorder(),
+                child: Container(
+                  width: Config().deviceWidth(context) * 0.2,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Lottie.asset(
+                    'assets/lottie/avatar.json',
+                    // width: Config().deviceWidth(context) * 0.1,
+                  ),
+                ),
               ),
               SizedBox(height: 16.0),
               Text(

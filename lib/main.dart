@@ -15,17 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        platform: TargetPlatform.iOS,
-        primarySwatch: Colors.blue,
-        pageTransitionsTheme: const PageTransitionsTheme(
-          builders: <TargetPlatform, PageTransitionsBuilder>{
-            TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          },
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          platform: TargetPlatform.iOS,
+          primarySwatch: Colors.blue,
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android: ZoomPageTransitionsBuilder(),
+            },
+          ),
         ),
-      ),
-      home: MainPage(),
-    );
+        home: MainPage());
   }
 }

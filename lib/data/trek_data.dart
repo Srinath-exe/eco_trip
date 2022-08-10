@@ -282,3 +282,88 @@ The trails ends at a place which is popularly known as Chakratheertha.""",
         "assets/images/trek/trek9img3.png",
       ]),
 ];
+
+List<Trek> blore = [
+  Trek(
+      id: 1,
+      name: "Kaiwara Betta",
+      location: "Bengaluru",
+      description:
+          """If you are fascinated by mythology, pack your backpacks and head to Kaiwara, a little village in Chikballapur earlier known as Ekachakrapura. Situated about 65 km from Bengaluru, Kaiwara is famously known for the great poet Sri Yogi Kaiwara Narayana Taatha. Also known as Thataiyya, he was a bilingual poet and devotee of Lord Amara Narayana. Kaiwara is well known for the fort that is situated here. Trekking in Kaiwara can be a bit rough and cumbersome. It’s quite a steep and tough terrain but worth the sight!
+
+Truly a pilgrimage with great mythological significance, Kaiwara is home to many temples and historical sites like:
+
+Amara Narayana Temple is known for its intricate architecture of four sculpted stone pillars with delicately sculpted motifs. Bhima Lingeshwara Temple is situated at the foothill of Bhima Bakasura Betta which is another prominent historical site. It is believed that Bhima, one of the Pandavas killed the demon Bakasura here while they stayed here in exile. About two kilometers from the Amara Narayana Temple lies the Vaikunta Caves also another sacred space where it is believed that Thataiyya meditated and attained spiritual bliss.
+
+Located in Chintamani Taluk, this place is a treat to believers and adventure enthusiasts alike. With plots woven around Mahabharata and Ramayana, the place offers mesmerizing views of hills and valleys where once legends lived.
+
+To get to Kaiwara, you can either take the Bangalore-Hoskote-Kaiwara route or Bangalore, Devanahalli-Vijayapura-Kaiwara route. Bheema Bakasura is a great hill trekking area but not meant for a beginner as it might be a bit dangerous without assistance. As Kaiwara receives heavy rain, it’s best to visit/trek in the months of Dec-March and June- September.
+
+Almost 7 km from Kaiwara is Kailasha Giri. From here one would be able to view cave temples like Ambaji Durga Cave Temples and Ananta Padmanabha and Chenna Keshava Cave temples.
+
+Now, who is ready to trace the mythology lane in Kaiwara?! Gear up!
+""",
+      length: "1.30",
+      difficulty: "difficult",
+      duration: "3.0",
+      end: "Mylapurabetta View Point",
+      start: "Main Gate Of Kaiwara Tapovana At Shamaraohosapete Village",
+      loc: Tags.Bangalore,
+      time: "6:30 AM",
+      imgs: [
+        "assets/images/trek/trek1img1.png",
+        "assets/images/trek/trek1img2.png",
+        "assets/images/trek/trek1img3.png",
+        "assets/images/trek/trek1img4.png",
+      ]),
+  Trek(
+      id: 2,
+      name: "Skandagiri",
+      location: "Bengaluru",
+      description:
+          """Skandagiri, also known as Kalavara Durga, is an ancient mountain fortress located approximately 70 km from Bangalore city, and 3 km from Chikballapur in the Indian state of Karnataka. It is off Bellary Road ( NH 7 Hyderabad-Bangalore Highway), and overlooks Nandi Hills and Muddenahalli. The peak is at an altitude of about 1350 meters.
+
+Skandagiri is a perfect weekend getaway near Bangalore, preferred by most adventure and nature lovers. Located in the Nandi Hill ranges, at a distance of about 68 kms from Bangalore, the historic hill fort of Skandagiri is also famous by the name of Kalwarebetta. It is one of the most loved destinations for trekking near Bangalore that offers a perfect break from the busy and stressful city life and transports the participants into a calm and peaceful environment. The trek is an exciting climbing adventure for enthusiasts.
+
+Skandagiri hiking is a day long trip that is usually commenced after breakfast in the morning. The total hiking distance is 8 kms moderate to tough difficulty level, which makes it important for the participants to be physically and mentally fit.
+
+Hiking to Skandagiri commences from the Papagni Temple, which is located at the foothills of the Kalwara village. The participants get to see a majestic view of the fortress located on the peak at a height of 1350m above sea level, through the entire hiking trail. The trail itself passes through a maze of dense shrubs which can be quite intriguing.
+
+Upon reaching the top, hikers often feel mesmerized by the sight of old fortress, which despite being in a dilapidated condition reflects the majestic appeal it once held. There is also an old abandoned Shiva temple at the top where the hikers can relax and enjoy the view of their magnificient surroundings.""",
+      length: "4.0",
+      difficulty: "Modarate",
+      duration: "2.0",
+      start: "Kalwara Village",
+      end: "Skandagiri Hilltop",
+      loc: Tags.Bangalore,
+      time: "4:00 AM & 8:00 AM",
+      imgs: [
+        "assets/images/trek/trek2img1.png",
+        "assets/images/trek/trek2img2.png",
+        "assets/images/trek/trek2img3.png",
+        "assets/images/trek/trek2img4.png",
+      ]),
+  Trek(
+      id: 3,
+      name: "Ramadevara betta",
+      location: "Bengaluru",
+      description:
+          """Ramadevara betta is situated very close to Tumkur town and one of the major attraction for the nature lovers. This trail starts from Gokula Goshale and ends at kalyani.
+
+This trek is about 7kms in length and will take about 3.5 hours to cover. Along the trail you'll be able to see signs of wild life such as sloth bears, leopard, Jungle fowl and Wild boars.
+
+This hill has huge boulders and will make you feel tiny in front of nature's marvel, you'll also be able to get an excellent view of the entire hill during the walk and also this place has mythological importance as it is believed that Rama & Seetha resided here during their exile at the same hill.""",
+      length: "7.0",
+      difficulty: "Modarate",
+      duration: "4.0",
+      start: "Gokula Goshale",
+      end: "Kalyani",
+      loc: Tags.Bangalore,
+      time: "9:00 AM",
+      imgs: [
+        "assets/images/trek/trek3img1.png",
+        "assets/images/trek/trek3img2.png",
+        "assets/images/trek/trek3img3.png",
+        "assets/images/trek/trek3img4.png",
+      ]),
+];

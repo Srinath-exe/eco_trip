@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
     return SideMenu(
       key: _sideMenuKey,
       menu: buildMenu(context),
-      radius: BorderRadius.circular(60),
+      radius: BorderRadius.circular(40),
       background: darkGreen,
       type: SideMenuType.slideNRotate,
       child: Scaffold(
@@ -67,11 +67,11 @@ class _MainPageState extends State<MainPage> {
               Positioned(
                 bottom: 0,
                 child: Container(
-                  height: 70,
+                  height: 80,
                   width: Config().deviceWidth(context),
                   color: Colors.transparent,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Material(
                       borderRadius: const BorderRadius.all(Radius.circular(30)),
                       color: Colors.transparent,
@@ -108,6 +108,17 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
+              // Positioned(
+              //     bottom: 0,
+              //     left: 30,
+              //     child: Row(
+              //       children: [
+              //         Image.asset(
+              //           "assets/images/navbottom.png",
+              //           width: 36,
+              //         )
+              //       ],
+              //     ))
             ],
           ),
         ),
@@ -122,9 +133,25 @@ BottomNavigationBarItem navItem({
   required String name,
 }) {
   return BottomNavigationBarItem(
-    icon: SvgIcon(
-        color: currentIndex == index ? Colors.green : Colors.grey,
-        path: "${name}.svg"),
+    icon: Container(
+      height: 40,
+      child: Stack(
+        clipBehavior: Clip.none,
+        alignment: AlignmentDirectional.topCenter,
+        children: [
+          SvgIcon(
+              color: currentIndex == index ? darkGreen : Colors.grey,
+              path: "${name}.svg"),
+          AnimatedPositioned(
+              duration: const Duration(milliseconds: 100),
+              bottom: currentIndex == index ? -22 : -50,
+              child: Image.asset(
+                "assets/images/navbottom.png",
+                width: 36,
+              ))
+        ],
+      ),
+    ),
     label: name,
   );
 }

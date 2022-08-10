@@ -11,6 +11,7 @@ import 'package:lottie/lottie.dart';
 import 'package:shrink_sidemenu/shrink_sidemenu.dart';
 
 import '../../../constants/config.dart';
+import '../../../data/trek_data.dart';
 import '../../news/widgets/news_tile.dart';
 import '../../treks_page/widgets/trek_tile.dart';
 import 'widgets/home_tile.dart';
@@ -148,21 +149,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             HomeTile(
                               location: "Bengaluru",
                               no: 10,
+                              treks: blore,
                               url: "assets/images/bangalore1.jpg",
                             ),
                             HomeTile(
                               location: "Belagavi",
                               no: 5,
+                              treks: treks
+                                  .where(
+                                      (element) => element.loc == Tags.Belagavi)
+                                  .toList(),
                               url: "assets/images/belagavi1.jpg",
                             ),
                             HomeTile(
                               location: "Chikkamagaluru ",
                               no: 3,
+                              treks: treks
+                                  .where((element) =>
+                                      element.loc == Tags.Chikkamagaluru)
+                                  .toList(),
                               url: "assets/images/chikkamagaluru1.jpg",
                             ),
                             HomeTile(
-                              location: "Bellari",
+                              location: "Bellary",
                               no: 3,
+                              treks: treks
+                                  .where(
+                                      (element) => element.loc == Tags.Bellary)
+                                  .toList(),
                               url: "assets/images/bellari.png",
                             ),
                           ],

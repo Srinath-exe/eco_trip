@@ -1,5 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../constants/config.dart';
 import '../../About_Us_page/Screens/aboutus_page.dart';
@@ -26,9 +27,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         SizedBox(
           height: Config().deviceHeight(context) * 0.03,
         ),
-        buttontile(title: "History", icon: Icons.history, onTap: () {}),
+        buttontile(title: "Trek History", icon: Icons.history, onTap: () {}),
         buttontile(
             title: "Privacy & Settings", icon: Icons.settings, onTap: () {}),
+        buttontile(
+            title: "Contact Us / Query", icon: Icons.settings, onTap: () {}),
         buttontile(
           title: "About",
           icon: Icons.info,
@@ -42,6 +45,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            SizedBox(
+              width: 8,
+            ),
             signout(title: "Sign out", icon: Icons.logout, onTap: () {})
           ],
         )
@@ -88,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           // ),
           AvatarGlow(
               glowColor: darkGreen,
-              endRadius: 60.0,
+              endRadius: 70.0,
               duration: const Duration(milliseconds: 2000),
               repeat: true,
               showTwoGlows: true,
@@ -100,17 +106,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: Config().deviceWidth(context) * 0.3,
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Image.asset("assets/images/avatar.png"),
+                  child: Lottie.asset(
+                    'assets/lottie/avatar.json',
+                    // width: Config().deviceWidth(context) * 0.1,
+                  ),
                 ),
               )),
           SizedBox(
-            width: Config().deviceWidth(context) * 0.01,
+            width: Config().deviceWidth(context) * 0.02,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              title("Wade Hudson", 24),
-              title("WadeHudson@gmail.com", 15),
+              title("Srinath", 24),
+              title("SrinathUI@gmail.com", 15),
             ],
           )
         ],

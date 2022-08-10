@@ -6,16 +6,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
+import '../../../../data/trek_data.dart';
+import '../../../places/subtrekplaces.dart';
+
 class HomeTile extends StatefulWidget {
   String location;
   int no;
   String url;
   bool? mid;
+  List<Trek> treks;
+
   HomeTile(
       {super.key,
       this.mid = false,
       required this.location,
       required this.no,
+      required this.treks,
       required this.url});
 
   @override
@@ -26,6 +32,15 @@ class _HomeTileState extends State<HomeTile> {
   @override
   Widget build(BuildContext context) {
     return ZoomTapAnimation(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+          return SubTrek(
+            name: widget.location,
+            treks: widget.treks,
+          );
+        }));
+      },
       child: Material(
         elevation: 20,
         shadowColor: black.withOpacity(1),

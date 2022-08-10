@@ -43,33 +43,15 @@ class _SearchScreenState extends State<SearchScreen> {
         AppBarMain(
           title: "Search",
         ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     DropdownTextField(
-        //       width: Config().deviceWidth(context) * 0.9,
-        //       options: ['madikere', 'bengaluru', 'dsadsdsa'],
-        //       onSelected: (e) {
-        //         setState(() {
-        //           locationController.text = e;
-        //         });
-        //       },
-        //       labelText: "Select Location",
-        //       controller: locationController,
-        //     ),
-        //   ],
-        // ),
         SizedBox(
           height: 12,
         ),
         SearchBar(
           color: lightgreen.withOpacity(0.2),
         ),
-
         SizedBox(
           height: 20,
         ),
-
         Expanded(
           child: GridView(
             padding: const EdgeInsets.all(12),

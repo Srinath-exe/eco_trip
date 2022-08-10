@@ -107,6 +107,7 @@ class _TrekCardState extends State<TrekCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             widget.trek.name,
@@ -127,22 +128,22 @@ class _TrekCardState extends State<TrekCard> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.star_border_rounded,
-                            color: darkGreen,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "4.2",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: darkGrey,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
+                          // Icon(
+                          //   Icons.star_border_rounded,
+                          //   color: darkGreen,
+                          //   size: 28,
+                          // ),
+                          // const SizedBox(
+                          //   width: 5,
+                          // ),
+                          // Text(
+                          //   "4.2",
+                          //   style: TextStyle(
+                          //       fontSize: 16,
+                          //       color: darkGrey,
+                          //       fontWeight: FontWeight.w500),
+                          // ),
+                          const SizedBox(
                             width: 20,
                           ),
                           Image.asset(
