@@ -1,10 +1,12 @@
 import 'package:eco_trip/main/Trekking_Details_page/Screens/details_homepage.dart';
 import 'package:eco_trip/main/navpage/main_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 import 'data/trek_data.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
