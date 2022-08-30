@@ -56,7 +56,7 @@ class _TrekInfoState extends State<TrekInfo> {
             children: [
               Image.asset("assets/images/trekmap.png"),
               Positioned(
-                  top: 42,
+                  top: 32,
                   child: SizedBox(
                     width: Config().deviceWidth(context) * 0.5,
                     child: dataCell("Start", widget.trek.start, sike: true),
@@ -78,7 +78,7 @@ class _TrekInfoState extends State<TrekInfo> {
                   left: 0,
                   child: dataCell("Difficulty", widget.trek.difficulty)),
               Positioned(
-                  bottom: 50,
+                  bottom: 35,
                   left: 150,
                   child: dataCell("End", widget.trek.end, sike: true)),
             ],
